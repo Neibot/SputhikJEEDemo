@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sputnik JEE Demo</title>
+        <script src="jquery-1.12.4.min.js"></script>
+        <script src="javascript.js"></script>        
+	<script src="dhtmlxcalendar.js"></script>        
+        <link rel="stylesheet" type="text/css" href="dhtmlxcalendar.css"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body onload="doOnLoad();">        
+                  
+        <h3>Добавление книг в каталоги:</h3>
+        <table> 
+            <tr>
+                <td>Название книги &nbsp;</td>
+                <td><input type="text" name="name_add" id="name_add"/></td>
+            </tr>
+            <tr>
+                <td>Автор книги &nbsp;</td>
+                <td><input type="text" name="author_add" id="author_add"/></td>
+            </tr>
+            <tr>
+                <td>Дата публикации книги &nbsp;</td>
+                <td><input type="text" name="publication_date_add" id="publication_date_add"/></td>
+            </tr>                
+        </table>
+        <br> 
+        <table>
+            <tr>
+                <td><button onClick="AddToCatalog('public')">Добавить в публичный каталог</button> &nbsp; </td>
+                <td><button onClick="AddToCatalog('private')">Добавить в закрытый каталог</button> &nbsp; </td>                
+            </tr>
+        </table>
+
+        <br>
+
+        <h3>Поиск книг по ID:</h3>
+        <table> 
+            <tr>
+                <td>ID книги &nbsp;</td>
+                <td><input type="text" name="id_search" id="id_search"/></td>
+            </tr>                                
+        </table>
+        <br> 
+        <table>
+            <tr>                
+                <td><button onClick="SearchInCatalog('public')">Искать в публичном каталоге</button> &nbsp; </td>
+                <td><button onClick="SearchInCatalog('private')">Искать в закрытом каталоге</button> &nbsp; </td> 
+            </tr>
+        </table>
+
+        <br>
+
+        <h3>Редактирование данных в каталогах:</h3>
+        <table>
+            <tr>
+                <td>Существующий ID книги &nbsp;</td>
+                <td><input type="text" name="id_edit" id="id_edit"/></td>
+            </tr>
+            <tr>
+                <td>Новое название книги &nbsp;</td>
+                <td><input type="text" name="name_edit" id="name_edit"/></td>
+            </tr>
+            <tr>
+                <td>Новый автор книги &nbsp;</td>
+                <td><input type="text" name="author_edit" id="author_edit"/></td>
+            </tr>
+            <tr>
+                <td>Новая дата публикации книги &nbsp;</td>
+                <td><input type="text" name="publication_date_edit" id="publication_date_edit"/></td>
+            </tr>                
+        </table>
+        <br> 
+        <table>
+            <tr>                                                
+                <td><button onClick="EditInCatalog('public')">Отредактировать в публичном каталоге</button> &nbsp; </td>
+                <td><button onClick="EditInCatalog('private')">Отредактировать в закрытом каталоге</button> &nbsp; </td>             
+            </tr>
+        </table>
+
+        <br>
+
+        <h3>Удаление книг по ID:</h3>
+        <table> 
+            <tr>
+                <td>ID книги &nbsp;</td>
+                <td><input type="text" name="id_remove" id="id_remove"/></td>
+            </tr>                                
+        </table>
+        <br> 
+        <table>
+            <tr>                
+                <td><button onClick="RemoveFromCatalog('public')">Удалить в публичном каталоге</button> &nbsp; </td>
+                <td><button onClick="RemoveFromCatalog('private')">Удалить в закрытом каталоге</button> &nbsp; </td>   
+            </tr>
+        </table>
+
+        <br>
+
+        <h3>Перемещение книг между каталогами:</h3>
+        <table> 
+            <tr>
+                <td>ID книги &nbsp;</td>
+                <td><input type="text" name="id_change" id="id_change"/></td>
+            </tr>                                
+        </table>
+        <br> 
+        <table>
+            <tr>                
+                <td><button onClick="ChangeCatalog('public')">Из закрытого в публичный</button> &nbsp; </td>
+                <td><button onClick="ChangeCatalog('private')">Из публичного в закрытый</button> &nbsp; </td>
+            </tr>
+        </table>        
+        
+    </body>
+</html>
