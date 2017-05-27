@@ -33,7 +33,7 @@ public class RESTController
     private LibraryManagerSessionBean libraryManager;
     
     String htmlStart = "";
-    String htmlEnd = ""; 
+    String htmlEnd = "";
 
     public RESTController() 
     {
@@ -68,8 +68,7 @@ public class RESTController
     @POST
     @Path("/{catalog}")    
     public String addBook(@PathParam("catalog") String catalog, String content) 
-    {
-        System.out.println(content);
+    {        
         Book book = fromJson(content);
         String id = libraryManager.addBook(book.getName(), book.getAuthor(), book.getPublication_date(), catalog);        
         return htmlStart+"Книга добавлена в каталог "+catalog+" с присвоением ID "+id+htmlEnd;
@@ -78,10 +77,9 @@ public class RESTController
     @PUT
     @Path("/{catalog}/{id}")    
     public String editBook(@PathParam("catalog") String catalog, String content) 
-    {
-        System.out.println(content);
+    {        
         Book book = fromJson(content);
-        libraryManager.editBook(book.getId(), book.getName(), book.getAuthor(), book.getPublication_date(), catalog);
+        libraryManager.editBook(book.getId(), book.getName(), book.getAuthor(), book.getPublication_date(), catalog);        
         return htmlStart+"Книга отредактирована"+htmlEnd;
     }   
         

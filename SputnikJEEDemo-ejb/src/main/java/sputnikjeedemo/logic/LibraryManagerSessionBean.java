@@ -5,14 +5,18 @@
 package sputnikjeedemo.logic;
 
 import java.util.TreeMap;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.ejb.Singleton;
+import javax.ejb.Stateful;
 
 /**
  *
  * @author martin
  */
-@Stateless
+@Singleton
 @LocalBean
 public class LibraryManagerSessionBean {
 
@@ -36,6 +40,18 @@ public class LibraryManagerSessionBean {
         addToCatalog("Книга4, закрытый каталог", "Автор4", "Дата4", privateCatalog);
         addToCatalog("Книга5, закрытый каталог", "Автор5", "Дата5", privateCatalog);
         
+    }
+    
+    @PostConstruct
+    private void Debug1()
+    {
+        System.out.println("EJB создан");
+    }
+    
+    @PreDestroy
+    private void Debug2()
+    {
+        System.out.println("EJB уничтожен");
     }
     
     public String addBook(String name, String author, String publication_date, String catalog)
@@ -64,7 +80,7 @@ public class LibraryManagerSessionBean {
             id = String.valueOf(Integer.parseInt(catalog.lastKey())+1);
         else
             id = "0";
-        catalog.put(id,new Book(id,name,author,publication_date));
+        catalog.put(id,new Book(id,name,author,publication_date));        
     }
     
     public void removeBook(String id, String catalog)
