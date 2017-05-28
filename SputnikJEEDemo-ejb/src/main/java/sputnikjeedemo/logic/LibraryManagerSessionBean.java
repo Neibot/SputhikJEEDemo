@@ -7,10 +7,8 @@ package sputnikjeedemo.logic;
 import java.util.TreeMap;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
-import javax.ejb.Stateful;
 
 /**
  *
@@ -20,28 +18,9 @@ import javax.ejb.Stateful;
 @LocalBean
 public class LibraryManagerSessionBean {
 
-    private TreeMap <String, Book> publicCatalog;
-    private TreeMap <String, Book> privateCatalog;
-    
-    public LibraryManagerSessionBean()
-    {
-        publicCatalog = new TreeMap<>();
-        privateCatalog = new TreeMap<>();
-        
-        //тестовые данные. можно закомментировать, чтобы оставить коллекции пустыми
-        addToCatalog("Книга1, публичный каталог", "Автор1", "Дата1", publicCatalog);
-        addToCatalog("Книга2, публичный каталог", "Автор2", "Дата2", publicCatalog);
-        addToCatalog("Книга3, публичный каталог", "Автор3", "Дата3", publicCatalog);
-        addToCatalog("Книга4, публичный каталог", "Автор4", "Дата4", publicCatalog);
-        addToCatalog("Книга5, публичный каталог", "Автор5", "Дата5", publicCatalog);
-        addToCatalog("Книга1, закрытый каталог", "Автор1", "Дата1", privateCatalog);
-        addToCatalog("Книга2, закрытый каталог", "Автор2", "Дата2", privateCatalog);
-        addToCatalog("Книга3, закрытый каталог", "Автор3", "Дата3", privateCatalog);
-        addToCatalog("Книга4, закрытый каталог", "Автор4", "Дата4", privateCatalog);
-        addToCatalog("Книга5, закрытый каталог", "Автор5", "Дата5", privateCatalog);
-        
-    }
-    
+    private TreeMap <String, Book> publicCatalog = new TreeMap<>();
+    private TreeMap <String, Book> privateCatalog = new TreeMap<>();
+
     @PostConstruct
     private void Debug1()
     {
